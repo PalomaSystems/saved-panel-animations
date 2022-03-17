@@ -1,7 +1,7 @@
 import { Modal } from "bootstrap";
 
 window.savedPanel = function () {
-  const savedPanel1Div = document.querySelector(".savedPanel1");
+  const savedPanel1Div = document.querySelector(".savedPanel");
   const savedPanel1 = new Modal(savedPanel1Div, {
     backdrop: true,
     keyboard: true,
@@ -14,7 +14,7 @@ window.savedPanel = function () {
   }, 1000);
 };
 export const savedPanel = () => {
-  const savedPanel1Div = document.querySelector(".savedPanel1");
+  const savedPanel1Div = document.querySelector(".savedPanel");
   const savedPanel1 = new Modal(savedPanel1Div, {
     backdrop: true,
     keyboard: true,
