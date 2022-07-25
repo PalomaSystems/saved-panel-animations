@@ -1,8 +1,13 @@
-.savedPanel {
+.savedPanel, .deletedPanel {
     z-index: 1051;
 }
 .modal-content.savedPanel {
     background-color: #d4edda;
     border-color: #c3e6cb;
     color: #155724;
+}
+.modal-content.deletedPanel {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
 }
