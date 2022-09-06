@@ -1,97 +1,61 @@
-import { Modal } from "bootstrap";
+import { fadeIn, fadeOut } from 'fade-animations'
 
-window.savedPanel = function () {
-  createSavedPanel()
-
-  const savedPanelDiv = document.getElementById("savedPanel");
-  const modal = initModal(savedPanelDiv);
-  backdrop();
-
-  setTimeout(function () {
-    modal.hide();
-    setTimeout(() => {
-      savedPanelDiv.remove();
-    }, 500);
-  }, 1000);
-};
-export const savedPanel = () => {
-  createSavedPanel()
-
-  const savedPanelDiv = document.querySelector(".savedPanel");
-  const modal = initModal(savedPanelDiv);
-  backdrop();
-
-  setTimeout(function () {
-    modal.hide();
-    setTimeout(() => {
-      savedPanelDiv.remove();
-    }, 500);
-  }, 1000);
-};
-export const deletedPanel = () => {
-  createDeletedPanel()
-
-  const deletedPanelDiv = document.getElementById("deletedPanel");
-  const modal = initModal(deletedPanelDiv);
-  backdrop();
-
-  setTimeout(function () {
-    modal.hide();
-    setTimeout(() => {
-      deletedPanelDiv.remove();
-    }, 500);
-  }, 1000);
-};
+const panelCreation = () => {
+	const panelContainer = document.createElement('div')
+	panelContainer.classList.add('panelContainer', 'fadeOut', 'd-none')
+	return panelContainer
+}
 const createSavedPanel = () => {
-  var elem = document.createElement("div");
-  elem.classList.add("modal", "fade", "savedPanel");
-  elem.id = "savedPanel";
-  elem.setAttribute("tabindex", "-1");
-  elem.setAttribute("role", "dialog");
-  elem.setAttribute("aria-labelledby", "savedPanelLabel");
-  elem.innerHTML = `
-    <div class="modal-dialog" role="document">
-      <div class="modal-content savedPanel contentModal">
-        <div class="modal-body text-center">
-          <p>
-            Saved Successful!
-          </p>
-        </div>
-      </div>
-    </div>`;
-  document.body.appendChild(elem);
+	const panelContainer = panelCreation()
+
+	const elem = document.createElement('div')
+	elem.classList.add('savedPanel', 'toastPanel')
+	elem.id = 'savedPanel'
+	elem.setAttribute('aria-labelledby', 'savedPanelLabel')
+	elem.innerHTML = '<p class="panelText">Saved Successful!</p>'
+	panelContainer.appendChild(elem)
+	document.body.appendChild(panelContainer)
 }
 const createDeletedPanel = () => {
-  var elem = document.createElement("div");
-  elem.classList.add("modal", "fade", "deletedPanel");
-  elem.id = "deletedPanel";
-  elem.setAttribute("tabindex", "-1");
-  elem.setAttribute("role", "dialog");
-  elem.setAttribute("aria-labelledby", "deletedPanelLabel");
-  elem.innerHTML = `
-    <div class="modal-dialog" role="document">
-      <div class="modal-content deletedPanel contentModal">
-        <div class="modal-body text-center">
-          <p>
-            Deleted Successful!
-          </p>
-        </div>
-      </div>
-    </div>`;
-  document.body.appendChild(elem);
+	const panelContainer = panelCreation()
+
+	const elem = document.createElement('div')
+	elem.classList.add('deletedPanel', 'toastPanel')
+	elem.id = 'deletedPanel'
+	elem.setAttribute('aria-labelledby', 'deletedPanelLabel')
+	elem.innerHTML = '<p class="panelText">Deleted Successful!</p>'
+	panelContainer.appendChild(elem)
+	document.body.appendChild(panelContainer)
+}
+const showHidePanel = () => {
+	const panelContainer = document.querySelector('.panelContainer')
+	fadeIn(panelContainer)
+
+	setTimeout(() => {
+		fadeOut(panelContainer)
+		setTimeout(() => {
+			panelContainer.remove()
+		}, 500)
+	}, 2000)
+}
+export const savedPanel = () => {
+	createSavedPanel()
+
+	showHidePanel()
+}
+export const deletedPanel = () => {
+	createDeletedPanel()
+
+	showHidePanel()
 }
 
-function backdrop() {
-  const modalBackdrop = document.querySelector(".modal-backdrop");
-  modalBackdrop.classList.remove("modal-backdrop");
-}
+window.savedPanel = () => {
+	createSavedPanel()
 
-function initModal(panelDiv) {
-  const modal = new Modal(panelDiv, {
-    backdrop: true,
-    keyboard: true,
-  });
-  modal.show();
-  return modal;
-}
+	const savedPanelDiv = document.getElementById('savedPanel')
+	fadeIn(savedPanelDiv)
 
+	setTimeout(() => {
+		fadeOut(savedPanelDiv)
+	}, 1000)
+}

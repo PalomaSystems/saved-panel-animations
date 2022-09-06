@@ -1,0 +1,32 @@
+@import '../../node_modules/fade-animations/dist/index.min.css';
+
+.panelContainer {
+    position: fixed;
+    top: 5rem;
+    width: 100%;
+}
+.toastPanel {
+    z-index: 1051;
+    width: 30%;
+    display: flex;
+    margin: 0 auto 1rem auto;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+}
+.savedPanel {
+    background-color: #d4edda;
+}
+.deletedPanel {
+    background-color: #f8d7da;
+}
+.panelText {
+    text-align: center;
+    margin: auto;
+    padding: 1.25rem;
+}
+.savedPanel.panelText {
+    color: #155724;
+}
+.deletedPanel.panelText {
+    color: #721c24;
+}

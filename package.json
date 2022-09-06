@@ -4,7 +4,9 @@
   "description": "A small library for an easy 'Saved Successful!' toast using Bootstrap modals.",
   "main": "dist/index.min.js",
   "scripts": {
-    "build": "gulp"
+    "build": "concurrently --kill-others \"npm run lint\" \"npm run gulp\"",
+    "postinstall": "npm run lint",
+    "gulp": "gulp",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --fix"
   },
@@ -23,15 +25,18 @@
   "author": "kylescudder",
   "license": "MIT",
   "devDependencies": {
+    "concurrently": "^7.3.0",
     "eslint": "^8.23.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-minify": "^3.1.0",
-    "gulp-rename": "^2.0.0"
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.54.8"
   },
   "dependencies": {
-    "bootstrap": "^5.2.0"
+    "fade-animations": "^1.2.0"
   }
 }
