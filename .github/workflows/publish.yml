@@ -15,6 +15,7 @@ jobs:
           release-branch: "master" 
           package-json-path: "./package.json"
           update-version: true
+      - name: npm publish
       - run: npm install && npm run publish --tag ${{ steps.npmVersioning.outputs.tag }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
