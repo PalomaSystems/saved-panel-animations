@@ -1,5 +1,5 @@
 ![npm](https://img.shields.io/npm/v/saved-panel-animations)
-
+[![Release new version to NPMJS](https://github.com/kylescudder/saved-panel-animations/actions/workflows/publish.yml/badge.svg)](https://github.com/kylescudder/saved-panel-animations/actions/workflows/publish.yml)
 # saved-panel-animations
 A small library for an easy 'Saved Successful!' toast using Bootstrap modals.
 
