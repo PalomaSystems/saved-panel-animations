@@ -1,0 +1,21 @@
+
+on:
+  push:
+    branches: 'main'
+---
+jobs:
+  release_version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: npm versioning
+      id: npmVersioning
+      uses: pengyanb/npm-versioning-action@v1
+      with:
+        release-branch: "master" 
+        package-json-path: "./package.json"
+        update-version: true
+
+      - name: npm publish
+        run: npm run publish ./dist --tag ${{ steps.npmVersioning.outputs.tag }} --dry-run true
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
