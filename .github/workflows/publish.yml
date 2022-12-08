@@ -9,6 +9,9 @@ jobs:
   release_version:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: npm versioning
         uses: pengyanb/npm-versioning-action@v1
         with:
