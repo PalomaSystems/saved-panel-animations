@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: npm versioning
-      - uses: pengyanb/npm-versioning-action@v1
+        uses: pengyanb/npm-versioning-action@v1
         with:
           release-branch: "master" 
           package-json-path: "./package.json"
           update-version: true
       - name: npm publish
-      - run: npm install && npm run publish --tag ${{ steps.npmVersioning.outputs.tag }}
+        run: npm install && npm run publish --tag ${{ steps.npmVersioning.outputs.tag }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
