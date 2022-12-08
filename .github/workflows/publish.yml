@@ -15,8 +15,14 @@ jobs:
           release-branch: "master" 
           package-json-path: "./package.json"
           update-version: true
-
+  publish:
+    runs-on: ubuntu-latest
+    steps:
       - name: npm publish
-        run: npm run publish ./dist --tag ${{ steps.npmVersioning.outputs.tag }} --dry-run true
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 12
+      - run: npm install && npm run publish --tag ${{ steps.npmVersioning.outputs.tag }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
