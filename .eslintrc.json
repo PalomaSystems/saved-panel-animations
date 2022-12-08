@@ -17,7 +17,7 @@
     "eqeqeq": "warn",
     "no-throw-literal": "warn",
     "semi": ["error", "never"],
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", "unix"],
     "indent": ["error", "tab"],
 	"no-tabs": "off",
     "import/extensions": "off",
