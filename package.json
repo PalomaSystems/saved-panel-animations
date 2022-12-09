@@ -1,6 +1,6 @@
 {
   "name": "saved-panel-animations",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "A small library for an easy 'Saved Successful!' toast using Bootstrap modals.",
   "main": "dist/index.min.js",
   "scripts": {
