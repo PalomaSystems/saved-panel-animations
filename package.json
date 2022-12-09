@@ -1,11 +1,10 @@
 {
   "name": "saved-panel-animations",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "A small library for an easy 'Saved Successful!' toast using Bootstrap modals.",
   "main": "dist/index.min.js",
   "scripts": {
     "build": "concurrently --kill-others \"npm run lint\" \"npm run gulp\"",
-    "postinstall": "npm run lint",
     "gulp": "gulp",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --fix"
